@@ -36,7 +36,9 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <div v-if="success && submitting" class="requesting-message">REQUEST</div>
+                        <div v-if="success && submitting" class="requesting-message">
+                            <b-spinner type="border" small></b-spinner> Request
+                        </div>
                     </td>
 
                 </tr>
@@ -112,33 +114,44 @@
             invalidPassword() {
                 return this.login.password === ''
             }
-        },created(){
-        if(this.$cookies.isKey('token')){
-            this.$router.push({ name: 'Home', query: { redirect: '/' } })
-        }else{
-                this.$router.push({ name: 'Login', query: { redirect: '/login' } })
+        },
+        created() {
+            if (this.$cookies.isKey('token')) {
+                this.$router.push({
+                    name: 'Home',
+                    query: {
+                        redirect: '/'
+                    }
+                })
+            } else {
+                this.$router.push({
+                    name: 'Login',
+                    query: {
+                        redirect: '/login'
+                    }
+                })
+            }
         }
-    }
     }
 </script>
 
 <style scoped>
-@media only screen and (min-width: 768px){
-form {
-        margin-left: auto;
-        margin-right: auto;
-        width: 30%;
-        height: 200px;
-    }
+    @media only screen and (min-width: 768px) {
+        form {
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            height: 200px;
+        }
 
 
-    table {
-        padding: 20rem;
-        width: 100%;
-        height: 50px;
+        table {
+            padding: 20rem;
+            width: 100%;
+            height: 50px;
+        }
     }
-}
-    
+
 
     tr,
     td {

@@ -6,14 +6,20 @@
 </template>
 
 <script>
-  export default{
-    name : 'app',
-    created(){
-        if(this.$cookies.isKey('token')){
-            console.log(this.$cookies.get('token'))
-        }else{
-                this.$router.push({ name: 'Login', query: { redirect: '/login' } })
-        }
+
+  export default {
+    name: 'app',
+    created() {
+      if (this.$cookies.isKey('token')) {
+        console.log("OK")
+      } else {
+        this.$router.push({
+          name: 'Login',
+          query: {
+            redirect: '/login'
+          }
+        })
+      }
     }
   }
 </script>
